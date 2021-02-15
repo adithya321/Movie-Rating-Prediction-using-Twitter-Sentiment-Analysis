@@ -1,3 +1,8 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+
 import re
 import tweepy
 from tweepy import OAuthHandler
@@ -15,10 +20,10 @@ class TwitterClient(object):
 		Class constructor or initialization method.
 		'''
 		# keys and tokens from the Twitter Dev Console
-		consumer_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-		consumer_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-		access_token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-		access_token_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+		consumer_key = os.getenv('API_KEY')
+		consumer_secret = os.getenv('API_SECRET_KEY')
+		access_token = os.getenv('ACCESS_TOKEN')
+		access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
 
 		# attempt authentication
 		try:
